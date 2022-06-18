@@ -6,7 +6,7 @@ import * as Location from "expo-location"
 import MapView, { Marker } from 'react-native-maps'
 import { useSelector } from 'react-redux'
 
-export default function Menu(props) {
+export default function Mapa(props) {
 
   const user = useSelector(store => store.user)
   const { navigation } = props
@@ -72,7 +72,6 @@ export default function Menu(props) {
     })
 
   }, [])
-
 
   return (
     <View>

@@ -1,42 +1,42 @@
 import React, { useState, useLayoutEffect } from 'react'
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, Button, Alert, FlatList } from 'react-native';
-import * as doacaoService from "../services/DoacaoService"
+import * as rankingService from "../services/RankingService"
 import Registro from '../components/Registro';
 import { useDispatch, useSelector } from 'react-redux';
 
-export default function CadastroDoacao(props) {
+export default function CadastroRanking(props) {
 
     const [form, setForm] = useState({})
     const { navigation } = props
-    const [doacao, setDoacao] = useState([])
+    const [ranking, setRanking] = useState([])
     const user = useSelector(store => store.user)
 
-    const buscarDoacao = async () => {
+    const buscarRanking = async () => {
         try {
-            let dados = await doacaoService.getDoacaoUid(user.uid)
+            let dados = await rankingService.getRankingUid(user.uid)
             //console.log(dados)
-            setDoacao(dados)
+            setRanking(dados)
         } catch (error) {
 
         }
     }
 
     useLayoutEffect(() => {
-        buscarDoacao()
+        buscarRanking()
     }, [])
 
 
     const efetuarCadastro = async () => {
-        if (form.nome_responsavel && form.endereco) {
+        if (form.nome && form.numero_doacoes) {
             try {
-                await doacaoService.createPontoDoacao(form, user.uid)
+                await rankingService.createRanking(form, user.uid)
                 Alert.alert("Dados Registrados com Sucesso")
                 setForm({})
-                navigation.navigate("Mapa", { atualizar: true })
+                // navigation.navigate("Mapa", { atualizar: true })
                 console.log(form)
             } catch (error) {
-                Alert.alert("Erro ao registrar", "Verifique os campos, em especial o endereço!")
+                Alert.alert("Erro ao registrar", "Verifique os campos!")
                 console.log(form)
             }
         } else {
@@ -48,29 +48,29 @@ export default function CadastroDoacao(props) {
 
     return (
         <View style={styles.container}>
-            <Text style={{ textAlign: "center" }}>Informe os dados do local de doação:</Text>
+            <Text style={{ textAlign: "center" }}>Informe os dados:</Text>
             <Text style={{ textAlign: "center" }}>{user.email}</Text>
 
             <View style={styles.input}>
                 <TextInput
-                    placeholder='Nome do Responsável'
-                    value={form.nome_responsavel}
-                    onChangeText={(value) => setForm(Object.assign({}, form, { nome_responsavel: value }))}
+                    placeholder='Nome do doador'
+                    value={form.nome}
+                    onChangeText={(value) => setForm(Object.assign({}, form, { nome: value }))}
                 />
             </View>
 
             <View style={styles.input}>
                 <TextInput
-                    placeholder='Endereço Completo'
-                    value={form.endereco}
-                    onChangeText={(value) => setForm(Object.assign({}, form, { endereco: value }))}
+                    placeholder='Número de doações'
+                    value={form.numero_doacoes}
+                    onChangeText={(value) => setForm(Object.assign({}, form, { numero_doacoes: value }))}
 
                 />
             </View>
             <View style={styles.linha}>
                 <View style={styles.coluna}>
                     <Button
-                        title='Registrar ponto de doação'
+                        title='Registrar'
                         onPress={efetuarCadastro}
                     />
                 </View>
@@ -78,8 +78,8 @@ export default function CadastroDoacao(props) {
             <StatusBar style="auto" />
 
             <FlatList
-                data={doacao}
-                renderItem={({ item }) => <Registro dados={item} buscarDoacao={buscarDoacao} navigation={navigation} />}
+                data={ranking}
+                renderItem={({ item }) => <Registro dados={item} buscarRanking={buscarRanking} navigation={navigation} />}
                 keyExtractor={item => item.key}
             />
         </View >

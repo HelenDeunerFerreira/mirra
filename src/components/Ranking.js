@@ -1,12 +1,12 @@
 import { StyleSheet, Text, View, Button, Alert } from 'react-native'
 import React from 'react'
-import * as doacaoService from '../services/DoacaoService'
+import * as rankingService from '../services/RankingService'
 
-export default function Registro(props) {
+export default function Ranking(props) {
 
     const data = props.dados
 
-    const excluirDoacao = () => {
+    const excluirRanking = () => {
 
         Alert.alert("Deseja Excluir:", "Esses dados serão apagados para sempre!", [
             {
@@ -16,7 +16,7 @@ export default function Registro(props) {
             {
                 text: "OK", onPress: async () => {
                     try {
-                        await doacaoService.deleteDoacao(data.key)
+                        await rankingService.deleteRanking(data.key)
                         Alert.alert("Dados Excluídos com Sucesso")
                         props.navigation.navigate("Mapa", { atualizar: true })
                     } catch (error) {
@@ -31,8 +31,8 @@ export default function Registro(props) {
         <View style={styles.container}>
             <View style={styles.linha}>
                 <View style={styles.coluna}>
-                    <Text style={styles.campo}>Endereço:</Text>
-                    <Text>{data.endereco}</Text>
+                    <Text style={styles.campo}>Nome:</Text>
+                    <Text>{data.nome}</Text>
                 </View>
             </View>
             <View style={styles.linha}>
@@ -41,7 +41,7 @@ export default function Registro(props) {
                 <View style={styles.coluna}>
                 </View>
                 <View style={styles.coluna}>
-                    <Button title='Excluir' color={'red'} onPress={excluirDoacao} />
+                    <Button title='Excluir' color={'red'} onPress={excluirRanking} />
                 </View>
             </View>
         </View >
