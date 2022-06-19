@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
-import * as loginService from "../services/LoginService"
+
+import * as loginService from "../../services/LoginService"
+
+import { StatusBar } from 'expo-status-bar'
+import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native'
+import { Container, Titulo, ViewInput, ViewCheckBox, Linha, Coluna, Botao, Texto } from './style'
 
 export default function CadastroUser(props) {
 
@@ -26,11 +29,11 @@ export default function CadastroUser(props) {
         }
     }
 
-
     return (
-        <View style={styles.container}>
-            <Text style={{ textAlign: "center" }}>Informe suas credenciais</Text>
-            <View style={styles.input}>
+        <Container>
+            <Titulo>Informe suas credenciais</Titulo>
+
+            <ViewInput>
                 <TextInput
                     placeholder='e-mail'
                     autoCapitalize='none'
@@ -38,9 +41,9 @@ export default function CadastroUser(props) {
                     value={email}
                     onChangeText={(e) => setEmail(e)}
                 />
+            </ViewInput>
 
-            </View>
-            <View style={styles.input}>
+            <ViewInput>
                 <TextInput
                     placeholder='senha'
                     autoCapitalize='none'
@@ -48,39 +51,17 @@ export default function CadastroUser(props) {
                     value={senha}
                     onChangeText={(e) => setSenha(e)}
                 />
-            </View>
-            <View style={styles.linha}>
-                <View style={styles.coluna}>
-                    <Button
-                        title='Registrar Usuário'
-                        onPress={efetuarCadastro}
-                    />
-                </View>
-            </View>
+            </ViewInput>
+
+            <Linha>
+                <Coluna>
+                    <Botao onPress={efetuarCadastro}>
+                        <Texto>Registrar usuário</Texto>
+                    </Botao>
+                </Coluna>
+            </Linha>
+
             <StatusBar style="auto" />
-        </View >
+        </Container>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        padding: 10
-    }, input: {
-        borderWidth: 1,
-        borderColor: "gray",
-        margin: 5,
-        width: "60%",
-        padding: 3,
-        borderRadius: 5
-    },
-    linha: {
-        flexDirection: "row"
-    },
-    coluna: {
-        flex: 1,
-        marginLeft: 5
-    }
-
-});

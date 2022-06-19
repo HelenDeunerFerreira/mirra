@@ -1,9 +1,13 @@
 import React, { useState, useLayoutEffect } from 'react'
+import { useSelector } from 'react-redux'
+
+import * as doacaoService from "../../services/DoacaoService"
+import RegistroPontoDoacao from '../../components/RegistroPontoDoacao'
+
+import { Container, Titulo, ViewInput, Linha, Coluna, Botao, Texto } from './style'
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, Button, Alert, FlatList } from 'react-native';
-import * as doacaoService from "../services/DoacaoService"
-import Registro from '../components/Registro';
-import { useDispatch, useSelector } from 'react-redux';
+import { StyleSheet, Text, View, TextInput, Button, Alert, FlatList } from 'react-native'
+
 
 export default function CadastroDoacao(props) {
 
@@ -47,42 +51,44 @@ export default function CadastroDoacao(props) {
 
 
     return (
-        <View style={styles.container}>
-            <Text style={{ textAlign: "center" }}>Informe os dados do local de doação:</Text>
-            <Text style={{ textAlign: "center" }}>{user.email}</Text>
+        <Container>
+            <Titulo>Informe os dados do local de doação:</Titulo>
+            <Titulo>{user.email}</Titulo>
 
-            <View style={styles.input}>
+            <ViewInput>
                 <TextInput
                     placeholder='Nome do Responsável'
                     value={form.nome_responsavel}
                     onChangeText={(value) => setForm(Object.assign({}, form, { nome_responsavel: value }))}
                 />
-            </View>
+            </ViewInput>
 
-            <View style={styles.input}>
+            <ViewInput>
                 <TextInput
                     placeholder='Endereço Completo'
                     value={form.endereco}
                     onChangeText={(value) => setForm(Object.assign({}, form, { endereco: value }))}
 
                 />
-            </View>
-            <View style={styles.linha}>
-                <View style={styles.coluna}>
-                    <Button
-                        title='Registrar ponto de doação'
-                        onPress={efetuarCadastro}
-                    />
-                </View>
-            </View>
+            </ViewInput>
+
+            <Linha>
+                <Coluna>
+                    <Botao onPress={efetuarCadastro}>
+                        <Texto>Registrar ponto de doação</Texto>
+                    </Botao>
+                </Coluna>
+            </Linha>
+
             <StatusBar style="auto" />
 
             <FlatList
                 data={doacao}
-                renderItem={({ item }) => <Registro dados={item} buscarDoacao={buscarDoacao} navigation={navigation} />}
+                renderItem={({ item }) => <RegistroPontoDoacao dados={item} buscarDoacao={buscarDoacao} navigation={navigation} />}
                 keyExtractor={item => item.key}
             />
-        </View >
+
+        </Container>
     );
 }
 

@@ -1,13 +1,14 @@
 import React, { useState, useLayoutEffect } from 'react'
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
-import * as loginService from "../services/LoginService"
-import { CheckBox } from '@rneui/themed';
-
+import { StatusBar } from 'expo-status-bar'
+import { CheckBox } from '@rneui/themed'
 import AsyncStorage from "@react-native-async-storage/async-storage"
-import { useSelector, useDispatch } from 'react-redux';
-import * as UserAction from '../services/actions/user.action'
+import { useDispatch } from 'react-redux'
 
+import * as loginService from "../../services/LoginService"
+import * as UserAction from '../../services/actions/user.action'
+
+import { TextInput, Alert } from 'react-native'
+import { Container, Titulo, ViewInput, ViewCheckBox, Linha, Coluna, Botao, Texto } from './style'
 
 export default function Login(props) {
 
@@ -59,9 +60,11 @@ export default function Login(props) {
     }
 
     return (
-        <View style={styles.container}>
-            <Text>Informe suas credenciais</Text>
-            <View style={styles.input}>
+        <Container>
+
+            <Titulo>Informe as suas credenciais</Titulo>
+
+            <ViewInput>
                 <TextInput
                     placeholder='e-mail'
                     autoCapitalize='none'
@@ -70,8 +73,9 @@ export default function Login(props) {
                     onChangeText={(e) => setEmail(e)}
 
                 />
-            </View>
-            <View style={styles.input}>
+            </ViewInput>
+
+            <ViewInput>
                 <TextInput
                     placeholder='senha'
                     autoCapitalize='none'
@@ -79,55 +83,39 @@ export default function Login(props) {
                     value={senha}
                     onChangeText={(e) => setSenha(e)}
                 />
-            </View>
-            <View>
+            </ViewInput>
+
+            <ViewCheckBox>
                 <CheckBox
                     center
                     title="Lembre-me"
                     checked={lembreme}
                     onPress={lembrar}
                 />
-            </View>
-            <View style={styles.linha}>
-                <View style={styles.coluna}>
-                    <Button
-                        title='Entrar'
-                        onPress={efetuarLogin}
-                    />
-                </View>
-                <View style={styles.coluna}>
-                    <Button
-                        title='Registre-se'
-                        onPress={() => navigation.navigate("CadastroUser")}
-                    />
+            </ViewCheckBox>
 
-                </View>
-            </View>
+            <Linha>
+
+                <Coluna>
+                    <Botao onPress={efetuarLogin}>
+                        <Texto>
+                            Entrar
+                        </Texto>
+                    </Botao>
+                </Coluna>
+
+                <Coluna>
+                    <Botao onPress={() => navigation.navigate("CadastroUser")}>
+                        <Texto>
+                            Registre-se
+                        </Texto>
+                    </Botao>
+                </Coluna>
+
+            </Linha>
+
             <StatusBar style="auto" />
-        </View >
+
+        </Container>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    }, input: {
-        borderWidth: 1,
-        borderColor: "gray",
-        margin: 5,
-        width: "60%",
-        padding: 3,
-        borderRadius: 5
-    },
-    linha: {
-        flexDirection: "row"
-    },
-    coluna: {
-        flex: 1,
-        marginLeft: 5
-    }
-
-});

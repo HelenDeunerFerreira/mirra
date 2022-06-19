@@ -39,7 +39,7 @@ export default function App() {
             name="Mapa"
             component={Mapa}
             options={
-              { title: "Mapa" }
+              { title: "🌎 Mapa" }
             }
           />
 
@@ -63,7 +63,7 @@ export default function App() {
             name="SobreApp"
             component={SobreApp}
             options={
-              { title: "Sobre o aplicativo" }
+              { title: "🛠 Sobre o aplicativo" }
             }
           />
 
@@ -71,7 +71,7 @@ export default function App() {
             name="SobreDev"
             component={SobreDev}
             options={
-              { title: "Sobre a desenvolvedora" }
+              { title: "🥀 Sobre a desenvolvedora" }
             }
           />
 
@@ -79,7 +79,7 @@ export default function App() {
             name="RankingDoadores"
             component={RankingDoadores}
             options={
-              { title: "Ranking dos doadores" }
+              { title: "📜 Ranking dos doadores" }
             }
           />
 
@@ -88,7 +88,7 @@ export default function App() {
             component={CadastroDoacao}
             options={
               {
-                title: "Registro de Pontos de Doação",
+                title: "📍 Registro de Pontos de Doação",
                 headerTitleStyle: {
                   fontSize: 15
                 }

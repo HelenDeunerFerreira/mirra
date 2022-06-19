@@ -2,7 +2,8 @@ import React, { useState, useLayoutEffect } from 'react'
 
 import ListaDoadores from '../../components/ListaDoadores'
 
-import { Container, Titulo, Texto, Botao, FlatlistDoadores } from './style'
+import { Container, Texto, Botao } from './style'
+import { FlatList } from 'react-native'
 
 export default function RankingDoadores({ navigation }) {
 
@@ -10,8 +11,8 @@ export default function RankingDoadores({ navigation }) {
 
     const buscarRanking = async () => {
         try {
-            let dados = await rankingService.getRankingUid(user.uid)
-            //console.log(dados)
+            let dados = await rankingService.getRanking()
+            console.log(dados)
             setRanking(dados)
         } catch (error) {
 
@@ -24,7 +25,7 @@ export default function RankingDoadores({ navigation }) {
 
     return (
         <Container>
-            <FlatlistDoadores
+            <FlatList
                 data={ranking}
                 renderItem={({ item }) => <ListaDoadores dados={item} buscarRanking={buscarRanking} navigation={navigation} />}
                 keyExtractor={item => item.key}
@@ -32,7 +33,7 @@ export default function RankingDoadores({ navigation }) {
 
             <Botao onPress={() => navigation.navigate('CadastroRanking')}>
                 <Texto>
-                    Adicionar no ranking
+                    Adicionar ao ranking
                 </Texto>
             </Botao>
         </Container>

@@ -1,10 +1,13 @@
-import { StyleSheet, Text, View, Button, Alert, Dimensions } from 'react-native'
 import React, { useLayoutEffect, useState, useEffect } from 'react'
+import MapView, { Marker } from 'react-native-maps'
+import { useSelector } from 'react-redux'
+
 import * as loginService from '../services/LoginService'
 import * as doacaoService from '../services/DoacaoService'
 import * as Location from "expo-location"
-import MapView, { Marker } from 'react-native-maps'
-import { useSelector } from 'react-redux'
+
+import { StyleSheet, View, Button, Alert, Dimensions } from 'react-native'
+import { Botao, Texto } from './style'
 
 export default function Mapa(props) {
 
@@ -23,7 +26,6 @@ export default function Mapa(props) {
   const myPosition = async () => {
     let { status } = await Location.requestForegroundPermissionsAsync();
     if (status !== "granted") {
-      //setar uma msg de erro...
       return
     } else {
       let myLocation = await Location.getCurrentPositionAsync({})
@@ -35,7 +37,6 @@ export default function Mapa(props) {
   const buscarDoacao = async () => {
     try {
       let dados = await doacaoService.getPontoDoacao()
-      //console.log(dados)
       setDoacao(dados)
     } catch (error) {
 
@@ -43,7 +44,6 @@ export default function Mapa(props) {
   }
 
   const logoff = async () => {
-
     try {
       await loginService.logoff()
       navigation.replace("Login")
@@ -55,7 +55,6 @@ export default function Mapa(props) {
   useEffect(() => {
     myPosition()
     buscarDoacao()
-    //console.log(props)
   }, [props])
 
 
@@ -68,7 +67,7 @@ export default function Mapa(props) {
         fontSize: 15
       },
 
-      headerRight: () => <Button title='Logoff' onPress={logoff} />
+      headerRight: () => <Botao onPress={logoff}><Texto>Logoff</Texto></Botao>
     })
 
   }, [])
@@ -114,6 +113,7 @@ export default function Mapa(props) {
           />)}
 
       </MapView>
+
       <View style={{
         position: "absolute",
         top: "80%",
@@ -122,15 +122,14 @@ export default function Mapa(props) {
 
       }}>
 
-        <Button title='+ Ponto de doação' onPress={() => navigation.navigate("CadastroDoacao")} />
-      </View>
+        <Botao onPress={() => navigation.navigate("CadastroDoacao")}><Texto>+ Ponto de doação</Texto></Botao>
 
+      </View>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-
   map: {
     width: Dimensions.get("window").width,
     height: Dimensions.get("window").height

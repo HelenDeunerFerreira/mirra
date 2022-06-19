@@ -1,6 +1,6 @@
 import Geocoder from "react-native-geocoding";
 
-Geocoder.init("AIzaSyCV4HUM-y8JycVGeKoYIRIhSPi5WrXN2Sc")
+Geocoder.init("AIzaSyA7LNGO5STuT0ZPFeiAPor6OVB5uZaBngc")
 
 export const searchByAddress = (endereco) => {
 

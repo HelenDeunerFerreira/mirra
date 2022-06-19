@@ -8,31 +8,31 @@ export default function Menu({ navigation }) {
 
             <Botao onPress={() => navigation.navigate('Mapa')}>
                 <Texto>
-                    Mapa
+                    🌎 Mapa
                 </Texto>
             </Botao>
 
             <Botao onPress={() => navigation.navigate('CadastroDoacao')}>
                 <Texto>
-                    Cadastrar ponto de doação
+                    📍 Cadastrar ponto de doação
                 </Texto>
             </Botao>
 
             <Botao onPress={() => navigation.navigate('RankingDoadores')}>
                 <Texto>
-                    Ranking dos doadores
+                    📜 Ranking dos doadores
                 </Texto>
             </Botao>
 
             <Botao onPress={() => navigation.navigate('SobreApp')}>
                 <Texto>
-                    Sobre o aplicativo
+                    🛠 Sobre o aplicativo
                 </Texto>
             </Botao>
 
             <Botao onPress={() => navigation.navigate('SobreDev')}>
                 <Texto>
-                    Sobre a dev
+                    🥀 Sobre a dev
                 </Texto>
             </Botao>
 
