@@ -6,7 +6,7 @@ Helen Deuner Ferreira
 
 # Sobre o app
 
-Através do cadastro, será possível encontrar tanto as pessoas voluntárias quanto quem está precisando de ajuda.
+Cadastro de pontos de doação e ranking dos doadores.
 
 # Sobre o Clube
 
