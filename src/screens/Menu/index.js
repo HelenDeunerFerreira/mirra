@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Container, Texto, Botao } from "./style.js";
+import { Container, Texto, Botao } from "./style.js"
 
 export default function Menu({ navigation }) {
     return (
@@ -20,7 +20,13 @@ export default function Menu({ navigation }) {
 
             <Botao onPress={() => navigation.navigate('RankingDoadores')}>
                 <Texto>
-                    📜 Ranking dos doadores
+                    📄 Ranking dos doadores
+                </Texto>
+            </Botao>
+
+            <Botao onPress={() => navigation.navigate('CadastroRanking')}>
+                <Texto>
+                    📝 Cadastrar sua posição no ranking
                 </Texto>
             </Botao>
 

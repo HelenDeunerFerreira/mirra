@@ -2,11 +2,11 @@ import React, { useLayoutEffect, useState, useEffect } from 'react'
 import MapView, { Marker } from 'react-native-maps'
 import { useSelector } from 'react-redux'
 
-import * as loginService from '../services/LoginService'
-import * as doacaoService from '../services/DoacaoService'
+import * as loginService from '../../services/LoginService'
+import * as doacaoService from '../../services/DoacaoService'
 import * as Location from "expo-location"
 
-import { StyleSheet, View, Button, Alert, Dimensions } from 'react-native'
+import { StyleSheet, View, Alert, Dimensions } from 'react-native'
 import { Botao, Texto } from './style'
 
 export default function Mapa(props) {
@@ -31,7 +31,6 @@ export default function Mapa(props) {
       let myLocation = await Location.getCurrentPositionAsync({})
       setLocation(myLocation)
     }
-
   }
 
   const buscarDoacao = async () => {
@@ -39,7 +38,6 @@ export default function Mapa(props) {
       let dados = await doacaoService.getPontoDoacao()
       setDoacao(dados)
     } catch (error) {
-
     }
   }
 
@@ -56,7 +54,6 @@ export default function Mapa(props) {
     myPosition()
     buscarDoacao()
   }, [props])
-
 
   useLayoutEffect(() => {
 
@@ -82,10 +79,8 @@ export default function Mapa(props) {
           latitudeDelta: 0.01,
           longitudeDelta: 0.01,
         }}
-
       >
         {location &&
-
           <Marker
             coordinate={
               {
@@ -94,11 +89,11 @@ export default function Mapa(props) {
               }
             }
             title={user.email}
-            icon={require("../../assets/my-location-icon.jpg")}
-          />}
+            icon={require("../../../assets/my-location-icon.jpg")}
+          />
+        }
 
         {doacao.map((doacao, key) =>
-
           <Marker
             key={key}
             coordinate={{
@@ -106,12 +101,12 @@ export default function Mapa(props) {
               longitude: doacao.lng
             }}
             title={doacao.endereco}
-            icon={require("../../assets/doacao-position.png")}
+            icon={require("../../../assets/doacao-position.png")}
             onPress={() => Alert.alert(doacao.nome_responsavel,
               `Responsável: ${doacao.nome_responsavel}\nEndereço: ${doacao.endereco}`)}
 
-          />)}
-
+          />
+        )}
       </MapView>
 
       <View style={{
@@ -120,7 +115,8 @@ export default function Mapa(props) {
         alignSelf: "flex-end",
         paddingRight: 10
 
-      }}>
+      }}
+      >
 
         <Botao onPress={() => navigation.navigate("CadastroDoacao")}><Texto>+ Ponto de doação</Texto></Botao>
 
@@ -134,5 +130,4 @@ const styles = StyleSheet.create({
     width: Dimensions.get("window").width,
     height: Dimensions.get("window").height
   }
-
 })

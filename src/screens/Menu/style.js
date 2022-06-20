@@ -10,9 +10,12 @@ export const Container = styled.View`
 export const Botao = styled.TouchableOpacity`
   height: 40px;
   width: 90%;
+
   background-color: #a35bb6;
+
   border-radius: 5px;
   margin: 15px;
+  
   align-items: center;
   justify-content: center;
 `;

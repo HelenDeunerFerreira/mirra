@@ -14,7 +14,7 @@ export default function Login(props) {
 
     const [email, setEmail] = useState("")
     const [senha, setSenha] = useState("")
-    const [lembreme, setLembreme] = useState(false);
+    const [lembreme, setLembreme] = useState(false)
     const dispatch = useDispatch()
 
     const { navigation } = props
@@ -34,7 +34,6 @@ export default function Login(props) {
     }, [])
 
     const efetuarLogin = async () => {
-
         try {
             let user = await loginService.login(email, senha)
             dispatch(UserAction.setUser(user))
@@ -45,14 +44,12 @@ export default function Login(props) {
         }
     }
 
-
     const lembrar = async () => {
         setLembreme(!lembreme)
 
         if (!lembreme) {
             await AsyncStorage.setItem('email', email)
             await AsyncStorage.setItem("senha", senha)
-
         } else {
             await AsyncStorage.removeItem("email")
             await AsyncStorage.removeItem("senha")

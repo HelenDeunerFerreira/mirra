@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 import * as loginService from "../../services/LoginService"
 
 import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native'
-import { Container, Titulo, ViewInput, ViewCheckBox, Linha, Coluna, Botao, Texto } from './style'
+import { TextInput, Alert } from 'react-native'
+import { Container, Titulo, ViewInput, Linha, Coluna, Botao, Texto } from './style'
 
 export default function CadastroUser(props) {
 
@@ -18,14 +18,8 @@ export default function CadastroUser(props) {
             let retorno = await loginService.createUser(email, senha)
             Alert.alert(retorno)
             navigation.navigate("Login")
-
-            console.log(email)
-            console.log(senha)
         } catch (error) {
             Alert.alert("Erro ao registrar usuário", error)
-
-            console.log(email)
-            console.log(senha)
         }
     }
 

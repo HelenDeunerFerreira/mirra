@@ -1,8 +1,9 @@
 import React, { useState, useLayoutEffect } from 'react'
 
 import ListaDoadores from '../../components/ListaDoadores'
+import * as rankingService from '../../services/RankingService'
 
-import { Container, Texto, Botao } from './style'
+import { Container, Dado, Texto, Botao, Linha } from './style'
 import { FlatList } from 'react-native'
 
 export default function RankingDoadores({ navigation }) {
@@ -12,7 +13,6 @@ export default function RankingDoadores({ navigation }) {
     const buscarRanking = async () => {
         try {
             let dados = await rankingService.getRanking()
-            console.log(dados)
             setRanking(dados)
         } catch (error) {
 
@@ -25,6 +25,12 @@ export default function RankingDoadores({ navigation }) {
 
     return (
         <Container>
+
+            <Linha>
+                <Dado>Nome</Dado>
+                <Dado>N° de doações</Dado>
+            </Linha>
+
             <FlatList
                 data={ranking}
                 renderItem={({ item }) => <ListaDoadores dados={item} buscarRanking={buscarRanking} navigation={navigation} />}
@@ -36,6 +42,7 @@ export default function RankingDoadores({ navigation }) {
                     Adicionar ao ranking
                 </Texto>
             </Botao>
+
         </Container>
     )
 }

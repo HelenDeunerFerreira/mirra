@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Container, Linha, Coluna, Texto } from './style'
+import { Container, Linha, Texto, Tabela } from './style'
 
 export default function ListaDoadores(props) {
 
@@ -10,15 +10,16 @@ export default function ListaDoadores(props) {
         <Container>
 
             <Linha>
-                <Coluna>
-                    <Texto>Nome:</Texto>
-                    <Texto>{data.nome}</Texto>
-                </Coluna>
 
-                <Coluna>
-                    <Texto>Número de doações:</Texto>
-                    <Texto>{data.numero_doacoes}</Texto>
-                </Coluna>
+
+                <Tabela>
+                    <Texto> {data.nome}</Texto>
+                </Tabela>
+
+                <Tabela>
+                    <Texto> {data.numero_doacoes}</Texto>
+                </Tabela>
+
             </Linha>
 
         </Container>

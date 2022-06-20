@@ -9,15 +9,19 @@ export const Container = styled.View`
 
 export const Linha = styled.View`
   flex-direction: row;
-`;
-
-export const Coluna = styled.View`
-  flex: 1;
-  margin-left: 5px;
+  margin: 3px;
 `;
 
 export const Texto = styled.Text`
   color: #000;
   font-size: 18px;
   text-align: center;
+`;
+
+export const Tabela = styled.View`
+  width: 60%;
+
+  border-width: 0.7px;
+  border-color: black;
+  border-radius: 5px;
 `;

@@ -28,14 +28,12 @@ export const getRankingUid = (uid) => {
             })
             resolve(registros)
         } catch (error) {
-            console.log("Erro:", error)
             reject()
         }
     })
 }
 
 export const getRanking = () => {
-
     return new Promise(async (resolve, reject) => {
         try {
             const querySnapshot = await getDocs(collection(db, "contabilizacao"))
@@ -47,21 +45,17 @@ export const getRanking = () => {
             })
             resolve(registros)
         } catch (error) {
-            console.log("Erro:", error)
             reject()
         }
     })
 }
 
 export const deleteRanking = (key) => {
-    console.log("Delete", key)
     return new Promise(async (resolve, reject) => {
-
         try {
             await deleteDoc(doc(db, "contabilizacao", key))
             resolve()
         } catch (error) {
-            console.log(error)
             reject()
         }
     })

@@ -32,7 +32,9 @@ export const Linha = styled.View`
 
 export const Botao = styled.TouchableOpacity`
   height: 40px;
+
   background-color: #a35bb6;
+  
   border-radius: 5px;
   margin: 5px;
   padding: 6px;

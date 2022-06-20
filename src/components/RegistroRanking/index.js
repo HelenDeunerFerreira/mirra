@@ -1,9 +1,9 @@
 import React from 'react'
 
+import * as rankingService from '../../services/RankingService'
+
 import { Alert } from 'react-native'
 import { Container, Campo, Linha, Coluna, Botao, TextoBotao, Texto } from './style'
-
-import * as rankingService from '../../services/RankingService'
 
 export default function Ranking(props) {
 
@@ -32,10 +32,17 @@ export default function Ranking(props) {
     return (
         <Container>
             <Campo>
+
                 <Linha>
+
                     <Linha>
-                        <Texto>Nome:</Texto>
+                        <Texto>Nome: </Texto>
                         <Texto>{data.nome}</Texto>
+                    </Linha>
+
+                    <Linha>
+                        <Texto> - N° de doações: </Texto>
+                        <Texto>{data.numero_doacoes}</Texto>
                     </Linha>
 
                     <Coluna>
@@ -45,7 +52,9 @@ export default function Ranking(props) {
                             </TextoBotao>
                         </Botao>
                     </Coluna>
+
                 </Linha>
+
             </Campo>
         </Container>
     )

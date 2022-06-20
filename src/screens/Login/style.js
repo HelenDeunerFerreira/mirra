@@ -14,12 +14,14 @@ export const Titulo = styled.Text`
 `;
 
 export const ViewInput = styled.View`
+  width: 60%;
+
   border-width: 0.7px;
   border-color: black;
-  margin: 5px;
-  width: 60%;
-  padding: 3px;
   border-radius: 5px;
+
+  margin: 5px;
+  padding: 3px;
 `;
 
 export const ViewCheckBox = styled.View``;
@@ -35,9 +37,12 @@ export const Coluna = styled.View`
 
 export const Botao = styled.TouchableOpacity`
   height: 40px;
+
   background-color: #a35bb6;
+
   border-radius: 5px;
   margin: 4px;
+  
   align-items: center;
   justify-content: center;
 `;

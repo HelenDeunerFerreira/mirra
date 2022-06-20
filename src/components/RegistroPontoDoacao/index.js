@@ -19,7 +19,7 @@ export default function RegistroPontoDoacao(props) {
             {
                 text: "OK", onPress: async () => {
                     try {
-                        await doacaoService.deleteDoacao(data.key)
+                        await doacaoService.deletePontoDoacao(data.key)
                         Alert.alert("Dados Excluídos com Sucesso")
                         props.navigation.navigate("Mapa", { atualizar: true })
                     } catch (error) {
@@ -34,9 +34,9 @@ export default function RegistroPontoDoacao(props) {
         <Container>
             <Campo>
                 <Linha>
+
                     <Linha>
-                        <Texto>Endereço: </Texto>
-                        <Texto>{data.endereco}</Texto>
+                        <Texto> {data.endereco}</Texto>
                     </Linha>
 
                     <Coluna>
@@ -46,6 +46,7 @@ export default function RegistroPontoDoacao(props) {
                             </TextoBotao>
                         </Botao>
                     </Coluna>
+
                 </Linha>
             </Campo>
         </Container >
