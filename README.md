@@ -28,7 +28,7 @@ Nossas redes sociais:
 <a href = "https://docs.google.com/document/d/1ydMbm24tx-X0Fug7hGMr6xPKpeuHveSoUxIHbMhDNlY/edit?usp=sharing"><img src="https://img.shields.io/badge/Google_Drive-4285F4?style=for-the-badge&logo=google-drive&logoColor=white" target="_blank"></a>
 <div>
 
-# Build do app para Adnroid disponível no Drive
+# Build do app para Android disponível no Drive
 
 <div>
 <a href = "https://drive.google.com/file/d/1rir-1qjvYmUd38qy1g1HuLOTuH5Lykwo/view?usp=sharing"><img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white" target="_blank"></a>
