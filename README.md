@@ -20,7 +20,16 @@ Nossas redes sociais:
 <a href = "https://www.instagram.com/girlupmirra/"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" target="_blank"></a>
 <a href = "http://girlupmirra.tumblr.com"><img src="https://img.shields.io/badge/Tumblr-%2336465D.svg?&style=for-the-badge&logo=Tumblr&logoColor=white" target="_blank"></a>
 <a href = "https://community.girlup.org/topics/16955"><img src="https://img.shields.io/badge/website-000000?style=for-the-badge&logo=About.me&logoColor=white" target="_blank"></a>
-
 <div>
 
+# Tutorial de como usar o app
+
+<div>
+<a href = "https://docs.google.com/document/d/1ydMbm24tx-X0Fug7hGMr6xPKpeuHveSoUxIHbMhDNlY/edit?usp=sharing"><img src="https://img.shields.io/badge/Google_Drive-4285F4?style=for-the-badge&logo=google-drive&logoColor=white" target="_blank"></a>
+<div>
+
+# Build do app para Adnroid disponível no Drive
+
+<div>
+<a href = "https://drive.google.com/file/d/1rir-1qjvYmUd38qy1g1HuLOTuH5Lykwo/view?usp=sharing"><img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white" target="_blank"></a>
 <div>
